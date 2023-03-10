@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeheele <jaeheele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 23:16:21 by jaeheele          #+#    #+#             */
-/*   Updated: 2023/03/10 17:43:28 by jaeheele         ###   ########.fr       */
+/*   Created: 2023/03/10 17:49:22 by jaeheele          #+#    #+#             */
+/*   Updated: 2023/03/10 17:49:53 by jaeheele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static void	ft_free(char **p)
 {
@@ -43,6 +43,8 @@ static char	*ft_read(char *temp, int fd, char *buf)
 {
 	ssize_t		r;
 
+	if (!(temp))
+		return (NULL);
 	r = 1;
 	while (r && !ft_strchr(temp, '\n'))
 	{
@@ -67,28 +69,28 @@ static char	*ft_read(char *temp, int fd, char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char	*temp;
+	static char	*temp[OPEN_MAX];
 	char		*buf;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!temp)
-		temp = ft_strdup("");
-	if (!temp)
+	if (!temp[fd])
+		temp[fd] = ft_strdup("");
+	if (!temp[fd])
 		return (NULL);
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 	{
-		ft_free(&temp);
+		ft_free(&temp[fd]);
 		return (NULL);
 	}
-	temp = ft_read(temp, fd, buf);
-	if (!temp)
+	temp[fd] = ft_read(temp[fd], fd, buf);
+	if (!temp[fd])
 		return (NULL);
-	if (!*temp)
+	if (!*temp[fd])
 	{	
-		ft_free(&temp);
+		ft_free(&temp[fd]);
 		return (NULL);
 	}
-	return (ft_next(&temp));
+	return (ft_next(&temp[fd]));
 }

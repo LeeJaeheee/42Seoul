@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeheele <jaeheele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 00:45:49 by jaeheele          #+#    #+#             */
-/*   Updated: 2023/03/10 17:43:59 by jaeheele         ###   ########.fr       */
+/*   Created: 2023/03/10 17:52:12 by jaeheele          #+#    #+#             */
+/*   Updated: 2023/03/10 17:54:55 by jaeheele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t size)
 {
