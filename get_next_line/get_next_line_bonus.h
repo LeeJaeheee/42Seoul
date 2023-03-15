@@ -6,7 +6,7 @@
 /*   By: jaeheele <jaeheele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 17:50:26 by jaeheele          #+#    #+#             */
-/*   Updated: 2023/03/10 17:51:18 by jaeheele         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:30:22 by jaeheele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # endif
 
 # ifndef OPEN_MAX
-#  define OPEN_MAX 10240
+#  define OPEN_MAX 49152
 # endif
 
 char	*ft_substr(char const *s, unsigned int start, size_t size);
