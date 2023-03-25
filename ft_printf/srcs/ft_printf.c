@@ -6,7 +6,7 @@
 /*   By: jaeheele <jaeheele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:20:39 by jaeheele          #+#    #+#             */
-/*   Updated: 2023/03/26 04:17:26 by jaeheele         ###   ########.fr       */
+/*   Updated: 2023/03/26 07:54:48 by jaeheele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,49 @@
 
 static int	print_conversion(const char **format, va_list args)
 {
-	int	done;
+	int	s_len;
 
-	done = 0;
+	s_len = 0;
 	if (**format == 's')
-		done += ft_putstr(va_arg(args, char *));
+		s_len += ft_putstr(va_arg(args, char *));
 	else if (**format == 'd' || **format == 'i')
-		done += ft_putnbr(va_arg(args, int));
+		s_len += ft_putnbr(va_arg(args, int));
 	else if (**format == 'u')
-		done += ft_putunbr(va_arg(args, unsigned int));
+		s_len += ft_putunbr(va_arg(args, unsigned int));
 	else if (**format == 'x' || **format == 'X')
-		done += ft_puthex(va_arg(args, unsigned int), **format);
+		s_len += ft_puthex(va_arg(args, unsigned int), **format);
 	else if (**format == 'c')
-		done += ft_putchar(va_arg(args, int));
+		s_len += ft_putchar(va_arg(args, int));
 	else if (**format == 'p')
 	{
-		done += ft_putstr("0x");
-		done += ft_puthex((unsigned long long)va_arg(args, void *), 'x');
+		s_len += ft_putstr("0x");
+		s_len += ft_puthex((unsigned long long)va_arg(args, void *), 'x');
 	}
 	else if (**format == '%')
-		done += ft_putchar('%');
+		s_len += ft_putchar('%');
 	else
-		done = -1;
+		s_len = -1;
 	(*format)++;
-	return (done);
+	return (s_len);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int		done;
+	int		s_len;
 
-	done = 0;
+	s_len = 0;
 	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			done += print_conversion(&format, args);
+			s_len += print_conversion(&format, args);
 		}
 		else
-			done += write(1, format++, 1);
+			s_len += write(1, format++, 1);
 	}
 	va_end(args);
-	return (done);
+	return (s_len);
 }
