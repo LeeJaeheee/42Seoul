@@ -1,0 +1,11 @@
+<stdarg.h>
+https://www.ibm.com/docs/ko/i/7.3?topic=files-stdargh
+
+man 3 stdarg
+https://wariua.github.io/man-pages-ko/stdarg%283%29/
+
+가변인수
+https://www.devkuma.com/docs/c/%EA%B0%80%EB%B3%80-%EC%9D%B8%EC%88%98/
+
+man vprintf 
+https://www.ibm.com/docs/ko/i/7.3?topic=functions-vprintf-print-argument-data#vprintf
