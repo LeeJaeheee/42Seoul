@@ -6,15 +6,19 @@ int main(void)
 {
 	char *line; 
 	int fd;
+	int i = 1;
     
-    fd = open("./test.txt", O_RDONLY);
+    fd = open("./test_mandatory.txt", O_RDONLY);
     
 	while(1)
 	{
     	line = get_next_line(fd);
+		printf("line %d : %s", i++, line);
         if (line == NULL)
         	break ;
-		printf("line : %s",line);
+		free(line);
 	}
+	close(fd);
 	return (0);
+
 }
