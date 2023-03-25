@@ -6,13 +6,13 @@
 /*   By: jaeheele <jaeheele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 00:20:39 by jaeheele          #+#    #+#             */
-/*   Updated: 2023/03/26 07:54:48 by jaeheele         ###   ########.fr       */
+/*   Updated: 2023/03/26 08:15:28 by jaeheele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	print_conversion(const char **format, va_list args)
+static int	ft_print_arg(const char **format, va_list args)
 {
 	int	s_len;
 
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			s_len += print_conversion(&format, args);
+			s_len += ft_print_arg(&format, args);
 		}
 		else
 			s_len += write(1, format++, 1);
