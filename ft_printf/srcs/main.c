@@ -5,8 +5,8 @@ int	main(void)
 {
     int num = 123;
 
-	ft_printf("character : %c\n", 'c');
-	printf("character : %c\n", 'c');
+    ft_printf("character : %c\n", 'c');
+    printf("character : %c\n", 'c');
 
     ft_printf("string : %s\n", "abcd");
 	printf("string : %s\n", "abcd");
@@ -33,5 +33,5 @@ int	main(void)
 	printf("percent : %%\n");
 
     //gcc main.c -o test -L.(라이브러리위치) -lftprintf(라이브러리이름) 
-	return (0);
+    return (0);
 }
