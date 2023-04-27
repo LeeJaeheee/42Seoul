@@ -3,3 +3,5 @@ https://github.com/sltcestloic/born2beroot_correction/blob/master/correction_bor
 https://github.com/hanshazairi/42-born2beroot
 https://github.com/gemartin99/Born2beroot-Tutorial/blob/main/README_EN.md
 https://dc-choi.tistory.com/55
+
+https://velog.io/@jiheon/Git-Commit-message-%EA%B7%9C%EC%B9%99 git 커밋메세지 규칙
